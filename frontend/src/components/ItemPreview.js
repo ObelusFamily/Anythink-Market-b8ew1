@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import agent from "../agent";
 import { connect } from "react-redux";
-import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes";
+import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes"
+import testImg from "../imgs/placeholder.png"
+
+
+
 
 const mapDispatchToProps = (dispatch) => ({
   favorite: (slug) =>
@@ -16,6 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
       payload: agent.Items.unfavorite(slug),
     }),
 });
+
+// const placeholder = "../imgs/placeholder.png"
 
 const ItemPreview = (props) => {
   const item = props.item;
@@ -35,8 +41,8 @@ const ItemPreview = (props) => {
       style={{ borderRadius: "20px" }}
     >
       <img
-        alt="item"
-        src={item.image}
+        alt="TEST ITEM"
+        src={item.image != "" ? item.image : testImg }
         className="card-img-top item-img"
         style={{ borderRadius: "20px" }}
       />
